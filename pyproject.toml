@@ -1,0 +1,157 @@
+[tool.poetry]
+name = "gd.share"
+version = "1.0.0"
+description = "Geometry Dash Discord Rich Presence."
+authors = ["nekitdev"]
+license = "MIT"
+
+readme = "README.md"
+
+homepage = "https://github.com/nekitdev/gd.share"
+repository = "https://github.com/nekitdev/gd.share"
+documentation = "https://nekitdev.github.io/gd.share"
+
+keywords = ["python", "gd", "presence"]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+]
+
+[tool.poetry.urls]
+Discord = "https://nekit.dev/discord"
+Funding = "https://patreon.com/nekitdev"
+Issues = "https://github.com/nekitdev/gd.share/issues"
+
+[[tool.poetry.packages]]
+include = "gd"
+
+[tool.poetry.scripts]
+"gd.share" = "gd.share.main:share"
+
+[tool.poetry.dependencies]
+python = ">= 3.7"
+
+entrypoint = ">= 1.4.0"
+tabulate = ">= 0.9.0"
+
+"gd.py" = ">= 1.0.0"
+
+[tool.poetry.group.format]
+optional = true
+
+[tool.poetry.group.format.dependencies]
+black = "23.3.0"
+flake8-pyproject = "1.2.3"
+
+[tool.poetry.group.format.dependencies.flake8]
+version = "6.0.0"
+python = ">= 3.8.1"
+
+[tool.poetry.group.format.dependencies.isort]
+version = "5.12.0"
+python = ">= 3.8"
+
+[tool.poetry.group.check]
+optional = true
+
+[tool.poetry.group.check.dependencies]
+mypy = "1.4.1"
+types-toml = "0.10.8.6"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "1.4.3"
+mkdocs-material = "9.1.18"
+
+[tool.poetry.group.docs.dependencies.mkdocstrings]
+version = "0.22.0"
+extras = ["python"]
+
+[tool.flake8]
+max_line_length = 100
+ignore = [
+    "E741",  # ambiguous variable name
+    "W503",  # line break before binary operator
+]
+
+[tool.black]
+line_length = 100
+
+[tool.isort]
+line_length = 100
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = "--cov gd"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["gd"]
+
+[tool.coverage.report]
+ignore_errors = true
+exclude_lines = [
+    "pragma: never",
+    "pragma: no cover",
+    "if TYPE_CHECKING",
+    "@overload",
+    "@abstractmethod",
+    "raise NotImplementedError",
+    "raise AssertionError",
+    "def __repr__",
+]
+
+[tool.coverage.html]
+directory = "coverage"
+
+[tool.mypy]
+show_column_numbers = true
+
+disallow_any_decorated = true
+disallow_any_generics = true
+warn_return_any = true
+
+no_implicit_optional = true
+strict_optional = true
+
+strict_equality = true
+
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_untyped_decorators = true
+disallow_untyped_globals = true
+
+disallow_incomplete_defs = true
+
+warn_no_return = true
+warn_unreachable = true
+
+warn_redundant_casts = true
+warn_unused_ignores = false  # compatibility
+
+[tool.changelogging]
+name = "gd.share"
+version = "1.0.0"
+url = "https://github.com/nekitdev/gd.share"
+directory = "changes"
+output = "CHANGELOG.md"
+
+start_string = "<!-- changelogging: start -->"
+
+title_format = "{version} ({date})"
+issue_format = "[#{issue}]({url}/pull/{issue})"
+
+bullet = "-"
+wrap = true
+wrap_size = 100
+
+display = ["feature", "change", "fix", "security", "deprecation", "removal", "internal"]
+
+[build-system]
+requires = ["poetry-core >= 1.6.1"]
+build-backend = "poetry.core.masonry.api"
