@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "gd.share"
-version = "1.0.0"
-description = "Geometry Dash Discord Rich Presence."
+version = "1.0.1"
+description = "Sharing Geometry Dash levels through CLI."
 authors = ["nekitdev"]
 license = "MIT"
 
@@ -11,7 +11,7 @@ homepage = "https://github.com/nekitdev/gd.share"
 repository = "https://github.com/nekitdev/gd.share"
 documentation = "https://nekitdev.github.io/gd.share"
 
-keywords = ["python", "gd", "presence"]
+keywords = ["python", "gd", "share"]
 
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -136,7 +136,7 @@ warn_unused_ignores = false  # compatibility
 
 [tool.changelogging]
 name = "gd.share"
-version = "1.0.0"
+version = "1.0.1"
 url = "https://github.com/nekitdev/gd.share"
 directory = "changes"
 output = "CHANGELOG.md"

@@ -6,7 +6,7 @@ __url__ = "https://github.com/nekitdev/gd.share"
 __title__ = "share"
 __author__ = "nekitdev"
 __license__ = "MIT"
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 from gd.share.main import share
 from gd.share.version import version_info
